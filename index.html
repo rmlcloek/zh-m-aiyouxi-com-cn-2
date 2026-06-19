@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>爱游戏 · 简明指南与访问提醒</title>
+    <style>
+        /* 基础重置与字体 */
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            background: #f1f7fc;
+            color: #1b2f3b;
+            line-height: 1.6;
+            padding: 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .page {
+            max-width: 680px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* 开场短句 —— 温柔叙事 */
+        .opening {
+            margin: 1.2rem 0 2rem 0;
+            padding: 1.8rem 1.2rem 1.2rem 1.2rem;
+            background: #e4f2ed;
+            border-radius: 2rem 2rem 1.2rem 1.2rem;
+            border-left: 5px solid #26847c;
+            box-shadow: 0 6px 14px rgba(0, 80, 70, 0.04);
+        }
+        .opening p {
+            font-size: 1.1rem;
+            letter-spacing: 0.2px;
+            color: #1d433f;
+            font-weight: 400;
+        }
+        .opening .short {
+            font-size: 1.5rem;
+            font-weight: 350;
+            background: white;
+            display: inline-block;
+            padding: 0.1rem 0.9rem 0.1rem 0.9rem;
+            border-radius: 40px;
+            margin-bottom: 0.7rem;
+            box-shadow: 0 2px 6px rgba(0,120,100,0.06);
+            color: #16665c;
+        }
+
+        /* 承接段落 —— 简明指南 */
+        .guide {
+            background: white;
+            border-radius: 1.5rem 1.5rem 0.8rem 0.8rem;
+            padding: 1.6rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 12px rgba(30, 80, 80, 0.05);
+        }
+        .guide p {
+            margin-bottom: 1rem;
+        }
+        .guide strong {
+            color: #127a6e;
+            font-weight: 600;
+        }
+
+        /* 网格卡片 —— 特点列表 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.9rem;
+            margin: 1.8rem 0 2rem 0;
+        }
+        @media (max-width: 460px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .card {
+            background: white;
+            padding: 1.2rem 1rem;
+            border-radius: 1.3rem;
+            border: 1px solid #cfe2dd;
+            box-shadow: 0 2px 8px rgba(0, 76, 65, 0.03);
+            transition: all 0.15s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            border-color: #57a99e;
+            transform: translateY(-2px);
+            background: #f6fffc;
+        }
+        .card-icon {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            color: #1f877b;
+        }
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0.2rem 0 0.2rem 0;
+            color: #0b4f46;
+        }
+        .card p {
+            font-size: 0.9rem;
+            color: #2e4d48;
+            margin-top: 0.2rem;
+            flex: 1;
+        }
+
+        /* 访问提醒 + 提示区块 */
+        .reminder {
+            background: #def0ec;
+            padding: 1.6rem 1.4rem;
+            border-radius: 1.8rem;
+            margin: 2rem 0 1.2rem 0;
+            border: 1px solid #b5d5cf;
+            box-shadow: inset 0 1px 3px rgba(255,255,255,0.7);
+        }
+        .reminder h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #115f55;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .reminder ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .reminder li {
+            margin-bottom: 0.6rem;
+            padding-left: 1.3rem;
+            position: relative;
+            color: #1d4a43;
+        }
+        .reminder li::before {
+            content: "•";
+            color: #358f82;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .reminder a {
+            color: #046b5e;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 500;
+        }
+
+        /* FAQ 摘要（简短） */
+        .faq-mini {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.5rem;
+            margin: 1.6rem 0 2.2rem;
+            border: 1px solid #cfded9;
+        }
+        .faq-mini details {
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #e3efe9;
+            padding: 0.5rem 0;
+        }
+        .faq-mini details:last-of-type {
+            border-bottom: none;
+        }
+        .faq-mini summary {
+            font-weight: 500;
+            color: #1f6d62;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            font-size: 0.95rem;
+        }
+        .faq-mini .answer {
+            margin: 0.4rem 0 0.2rem 0.3rem;
+            color: #2c5b52;
+            font-size: 0.9rem;
+        }
+
+        /* 温和结尾 */
+        .gentle-footer {
+            text-align: center;
+            padding: 1.6rem 0.5rem 2.2rem 0.5rem;
+            font-size: 0.95rem;
+            color: #386b62;
+            border-top: 1px dashed #b3cfc6;
+            margin-top: 1rem;
+        }
+        .gentle-footer span {
+            background: #dceee7;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+        }
+
+        /* 移动端细调 */
+        @media (max-width: 380px) {
+            .opening .short {
+                font-size: 1.2rem;
+            }
+            .card h3 {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 -->
+    <div class="opening">
+        <div class="short">👋 一起聊聊游戏</div>
+        <p>不需要太复杂，找到适合自己的玩法就好。从一份简明指南开始，慢慢熟悉 <a href="https://zh-m-aiyouxi.com.cn" style="color:#11685d; font-weight:500; text-decoration:underline;">爱游戏</a> 为你准备的日常与周末。</p>
+    </div>
+
+    <!-- 承接段落：简明指南 -->
+    <div class="guide">
+        <p><strong>如果这是你第一次来</strong>，不妨把页面当作一个安静的起点。这里没有花哨的跳转，只有一些基础的方向——帮你了解哪些内容值得留意，哪些提醒能让体验更顺畅。</p>
+        <p>平时常玩的内容被整理成几块，方便按心情翻阅。整个站点围绕中文玩家设计，节奏偏缓，适合抽空慢慢看。</p>
+    </div>
+
+    <!-- 网格卡片：特点列表 -->
+    <div class="features-grid">
+        <div class="card">
+            <div class="card-icon">🎮</div>
+            <h3>轻量浏览</h3>
+            <p>页面结构直接，没有过度加载，移动端也能快速打开。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">📋</div>
+            <h3>清单式分类</h3>
+            <p>不同主题分栏展示，想找什么一目了然，不堆砌信息。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🔒</div>
+            <h3>提醒优先</h3>
+            <p>隐私与安全提示放在显眼处，适合各种网络环境。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🌱</div>
+            <h3>日常友好</h3>
+            <p>内容不赶时间，没有紧迫感，像翻一本小手册。</p>
+        </div>
+    </div>
+
+    <!-- 访问提醒 -->
+    <div class="reminder">
+        <h2>📌 访问提醒 · 几点小建议</h2>
+        <ul>
+            <li>建议使用最新版浏览器，部分交互在老旧内核上可能显示不全。</li>
+            <li>如果在公共网络打开，注意周围环境，避免泄露个人偏好。</li>
+            <li>站点不含自动播放内容，所有跳转都需要你自己确认。</li>
+            <li>若遇到加载异常，可以稍后再试，或直接通过 <a href="https://zh-m-aiyouxi.com.cn">爱游戏</a> 主页重新进入。</li>
+        </ul>
+    </div>
+
+    <!-- FAQ 摘要（轻柔三个问答） -->
+    <div class="faq-mini">
+        <details>
+            <summary>这个网站主要适合谁？</summary>
+            <div class="answer">喜欢自己探索、不想被弹窗打扰的中文玩家，或者只是想找个干净的地方看看游戏相关的内容。</div>
+        </details>
+        <details>
+            <summary>需要注册或登录吗？</summary>
+            <div class="answer">完全不需要。所有内容都可以直接看，没有强制注册的步骤。</div>
+        </details>
+        <details>
+            <summary>移动端体验怎么样？</summary>
+            <div class="answer">专门做了适配，竖屏横屏都能正常阅读，字体和按钮大小也考虑过单手操作。</div>
+        </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="gentle-footer">
+        <span>慢慢来，保持轻松</span><br>
+        希望你在这里找到一段安静的浏览时光。
+    </div>
+
+</div>
+</body>
+</html>
