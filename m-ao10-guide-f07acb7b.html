@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>澳洲幸运10 · 知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #f1f9f9;
+            color: #1d2b2e;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px 16px 50px;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 8px 30px rgba(0, 60, 60, 0.08);
+            padding: 28px 22px 40px;
+            transition: padding 0.2s;
+        }
+
+        /* 蓝绿主色调 */
+        .accent-border {
+            border-left: 4px solid #219a9a;
+            padding-left: 14px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #d4f0f0;
+            color: #116a6a;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            padding: 2px 12px;
+            border-radius: 40px;
+            margin-bottom: 6px;
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            color: #053b3b;
+            margin-top: 4px;
+            margin-bottom: 8px;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #3f6e6e;
+            border-bottom: 1px solid #d4eae9;
+            padding-bottom: 14px;
+            margin-bottom: 24px;
+        }
+
+        /* 网格卡片区域 */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            margin: 26px 0 20px;
+        }
+
+        .card {
+            background: #f8fdfd;
+            border-radius: 20px;
+            padding: 18px 18px 20px;
+            border: 1px solid #d4e6e5;
+            box-shadow: 0 2px 6px rgba(0, 50, 50, 0.02);
+            transition: all 0.15s ease;
+        }
+
+        .card:hover {
+            border-color: #2bafaf;
+            box-shadow: 0 4px 12px rgba(0, 100, 100, 0.06);
+            background: #f7fcfc;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #115353;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card h3::before {
+            content: "▹";
+            color: #2bafaf;
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+
+        .card p {
+            font-size: 0.92rem;
+            color: #2d4a4a;
+            margin-top: 4px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e0f2f0;
+            color: #0c5c5c;
+            font-size: 0.7rem;
+            padding: 1px 12px;
+            border-radius: 30px;
+            margin-top: 8px;
+        }
+
+        /* 说明+提示双栏 */
+        .info-duo {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            margin: 30px 0 18px;
+        }
+
+        .info-box {
+            background: #f4fbfb;
+            border-radius: 20px;
+            padding: 20px 20px 22px;
+            border: 1px solid #cde0df;
+        }
+
+        .info-box h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0a4b4b;
+            margin-bottom: 6px;
+        }
+
+        .info-box p {
+            font-size: 0.92rem;
+            color: #234545;
+        }
+
+        .tip-box {
+            background: #edf7f7;
+            border-left: 5px solid #1fa8a8;
+            border-radius: 18px;
+            padding: 18px 20px 20px;
+        }
+
+        .tip-box h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0a4b4b;
+            margin-bottom: 5px;
+        }
+
+        .tip-box ul {
+            list-style: none;
+            margin-top: 4px;
+        }
+
+        .tip-box ul li {
+            font-size: 0.9rem;
+            color: #1c4444;
+            padding: 3px 0;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .tip-box ul li::before {
+            content: "•";
+            color: #1d9a9a;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .rel-section {
+            margin: 24px 0 10px;
+            padding-top: 6px;
+            border-top: 1px dashed #bcd5d3;
+        }
+
+        .rel-section h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #115353;
+            margin-bottom: 8px;
+        }
+
+        .pill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pill {
+            background: #e9f3f2;
+            color: #1d6060;
+            border-radius: 60px;
+            padding: 4px 16px;
+            font-size: 0.8rem;
+            border: 1px solid #c2dbd9;
+        }
+
+        .faq-summary {
+            background: #f6fcfb;
+            border-radius: 20px;
+            padding: 16px 20px 18px;
+            margin: 28px 0 0;
+        }
+
+        .faq-item {
+            padding: 6px 0;
+        }
+
+        .faq-item strong {
+            font-weight: 600;
+            color: #0b4f4f;
+        }
+
+        .faq-item p {
+            margin-top: 2px;
+            font-size: 0.9rem;
+            color: #2d4a4a;
+        }
+
+        .inline-link {
+            color: #116f6f;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #aad0cf;
+            transition: border-color 0.1s;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #0b7a7a;
+            color: #0b5c5c;
+        }
+
+        /* 响应式 */
+        @media (min-width: 600px) {
+            .page {
+                padding: 36px 34px 50px;
+            }
+
+            .grid-cards {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .info-duo {
+                flex-direction: row;
+                gap: 24px;
+            }
+
+            .info-duo > * {
+                flex: 1;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (min-width: 860px) {
+            .grid-cards {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #608484;
+            margin-top: 32px;
+            border-top: 1px solid #daeae9;
+            padding-top: 22px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 区域 -->
+    <div>
+        <span class="badge">✦ 知识库 · 目录式</span>
+        <h1>澳洲幸运10 · 主题说明</h1>
+        <div class="subhead">
+            围绕关键词梳理基础信息、场景与相关要点，提供清晰的结构化参考。
+        </div>
+    </div>
+
+    <!-- 网格卡片：特点 / 应用场景 / 基础概念 -->
+    <div class="grid-cards">
+        <div class="card">
+            <h3>玩法特点</h3>
+            <p>每期从数字范围中随机产生多个号码，开奖频率高、节奏明快。参与者根据自身判断选择组合，过程透明公开。</p>
+            <span class="tag">高频 · 随机</span>
+        </div>
+        <div class="card">
+            <h3>常见参与场景</h3>
+            <p>无论是个人闲暇分析，还是社群内讨论趋势，<a href="https://m-ao10.com" class="inline-link">澳洲幸运10</a> 常被用作交流主题。部分用户结合统计图表做参考，理性参与。</p>
+            <span class="tag">交流 · 分析</span>
+        </div>
+        <div class="card">
+            <h3>信息与参考</h3>
+            <p>平台提供历史数据、走势图表等基础工具，帮助参与者快速了解近期规律。所有内容仅供参考，不构成任何建议。</p>
+            <span class="tag">数据 · 走势</span>
+        </div>
+    </div>
+
+    <!-- 说明区 + 提示区 -->
+    <div class="info-duo">
+        <div class="info-box">
+            <h4>📋 说明区</h4>
+            <p>本站围绕「澳洲幸运10」整理内容，核心模块包括：玩法介绍、数据统计、话题索引。知识库保持更新，但不保证实时性。建议结合多方信源综合判断。</p>
+            <p style="margin-top: 10px;">所有展示内容仅用于信息了解，不引导任何行为。参与者请以实际平台规则为准。</p>
+        </div>
+        <div class="tip-box">
+            <h4>💡 提示区</h4>
+            <ul>
+                <li>关注开奖节奏与自身节奏的匹配</li>
+                <li>走势图可作为长期观察的辅助工具</li>
+                <li>避免过度依赖单一数据源</li>
+                <li>保持轻松心态，量力而行</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 相关信息区 -->
+    <div class="rel-section">
+        <h4>📎 相关信息</h4>
+        <div class="pill-list">
+            <span class="pill">开奖频率</span>
+            <span class="pill">号码分布</span>
+            <span class="pill">历史统计</span>
+            <span class="pill">名词解释</span>
+            <span class="pill">常见问题</span>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h4 style="font-weight: 600; color: #115353; margin-bottom: 10px;">❓ FAQ 摘要</h4>
+        <div class="faq-item">
+            <strong>「澳洲幸运10」的号码范围是多少？</strong>
+            <p>一般从 1 到 20 之间产生多个数字，具体以平台当期规则为准。平台 <a href="https://m-ao10.com" class="inline-link">澳洲幸运10</a> 提供详细的参数说明。</p>
+        </div>
+        <div class="faq-item">
+            <strong>走势图多久更新一次？</strong>
+            <p>通常每期开奖后同步更新。数据延迟请以页面实际显示为准。建议定期刷新获取最新信息。</p>
+        </div>
+        <div class="faq-item">
+            <strong>是否有官方交流区？</strong>
+            <p>可关注平台相关板块，或通过关键词搜索社区讨论。理性交流，不轻信未经核实的信息。</p>
+        </div>
+    </div>
+
+    <!-- 结束语 链接自然嵌入 -->
+    <div style="margin-top: 24px; background: #edf4f3; border-radius: 100px; padding: 12px 18px; text-align: center; font-size: 0.9rem; color: #1b4a4a;">
+        📌 本页是知识库的入口索引。更多内容可前往 <a href="https://m-ao10.com" class="inline-link" style="border-bottom-width: 2px;">澳洲幸运10</a> 页面浏览。
+    </div>
+
+    <div class="footer-note">
+        © 知识库 · 内容仅供参考 · 不构成任何引导
+    </div>
+</div>
+</body>
+</html>
