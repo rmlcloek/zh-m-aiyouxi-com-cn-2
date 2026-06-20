@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>188bet · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f9fc;
+            color: #1d3b4f;
+            line-height: 1.7;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .wrap {
+            max-width: 1080px;
+            width: 100%;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 48px 32px 32px;
+            box-shadow: 0 12px 30px rgba(28, 75, 92, 0.08);
+            padding: 2rem 1.5rem;
+            transition: padding 0.2s;
+        }
+        @media (min-width: 640px) {
+            .wrap {
+                padding: 3rem 2.8rem;
+            }
+            body {
+                padding: 32px 40px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .wrap {
+                padding: 4rem 4rem;
+                border-radius: 56px;
+            }
+        }
+
+        /* 开场短句 */
+        .opening {
+            font-size: 1.3rem;
+            font-weight: 350;
+            letter-spacing: 0.02em;
+            border-left: 4px solid #3da0b0;
+            padding-left: 1.2rem;
+            margin-bottom: 2.2rem;
+            color: #215a6b;
+            background: linear-gradient(to right, #eaf6fa, transparent);
+            border-radius: 0 12px 12px 0;
+        }
+        .opening em {
+            font-style: normal;
+            background: #d5edf2;
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+            color: #074155;
+        }
+
+        /* 承接段落 */
+        .intro-block {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2.8rem;
+        }
+        .intro-card {
+            background: white;
+            padding: 1.6rem 1.8rem;
+            border-radius: 28px;
+            box-shadow: 0 4px 14px rgba(58, 139, 155, 0.06);
+            border: 1px solid rgba(175, 214, 223, 0.3);
+            transition: transform 0.2s ease;
+        }
+        .intro-card:hover {
+            transform: translateY(-3px);
+            border-color: #9ccfd8;
+        }
+        .intro-card p {
+            margin-bottom: 0.75rem;
+        }
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+        .link-mild {
+            color: #1c7a8b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #7cb9c7;
+            transition: border 0.15s, background 0.1s;
+        }
+        .link-mild:hover {
+            border-bottom: 2px solid #2a8b9e;
+            background: #def2f7;
+            border-radius: 2px;
+        }
+
+        /* 特点列表：网格卡片 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin: 2.5rem 0 2rem;
+        }
+        @media (min-width: 540px) {
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 860px) {
+            .feature-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .feature-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.2rem 1.4rem;
+            box-shadow: 0 6px 16px rgba(45, 115, 128, 0.04);
+            border-left: 6px solid;
+            border-image: linear-gradient(145deg, #3eb0c2, #7ac6d4) 1;
+            border-left-style: solid;
+            border-left-width: 6px;
+            border-image: none;
+            border-left-color: #62b8c9;
+            transition: background 0.2s, border-left-color 0.2s;
+        }
+        .feature-item:nth-child(2) {
+            border-left-color: #4faaba;
+        }
+        .feature-item:nth-child(3) {
+            border-left-color: #83cbd9;
+        }
+        .feature-item:nth-child(4) {
+            border-left-color: #4f97a8;
+        }
+        .feature-item:nth-child(5) {
+            border-left-color: #78b9c5;
+        }
+        .feature-item:nth-child(6) {
+            border-left-color: #40a1b4;
+        }
+        .feature-item:hover {
+            background: #f6fcfd;
+            border-left-color: #1f8396;
+        }
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #154c5c;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .feature-title span {
+            font-size: 1.5rem;
+            line-height: 1;
+            margin-right: 0.2rem;
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #2c5b6b;
+            margin-top: 0.2rem;
+        }
+
+        /* 温和结尾 / 场景 + 提示 */
+        .closing-wrap {
+            margin: 2.2rem 0 1.8rem;
+            padding: 1.8rem 1.8rem 1.6rem;
+            background: #e2f2f6;
+            border-radius: 40px;
+            text-align: center;
+            border: 1px solid #cee9ef;
+        }
+        .closing-wrap p {
+            max-width: 760px;
+            margin: 0 auto 0.6rem;
+            font-size: 1.05rem;
+        }
+        .closing-wrap .small-note {
+            font-size: 0.9rem;
+            color: #386d7a;
+            background: #d5eaf0;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+        }
+
+        /* FAQ 摘要 (轻量) */
+        .faq-mini {
+            margin-top: 2.2rem;
+            padding: 0.2rem 0;
+        }
+        .faq-mini details {
+            background: white;
+            border-radius: 20px;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 0.7rem;
+            border: 1px solid #d2e6ec;
+            transition: box-shadow 0.15s;
+        }
+        .faq-mini details[open] {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            background: #fafffe;
+        }
+        .faq-mini summary {
+            font-weight: 550;
+            color: #11596c;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .faq-mini summary::before {
+            content: "▹";
+            color: #479aa8;
+            font-size: 1.1rem;
+        }
+        .faq-mini details p {
+            margin-top: 0.6rem;
+            padding-left: 0.6rem;
+            border-left: 3px solid #b0dae3;
+            padding: 0.4rem 1rem;
+            font-size: 0.95rem;
+            color: #1d495a;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, #ddedf2, #a9ccd6, #ddedf2);
+            margin: 2rem 0 1rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #517e8b;
+            margin-top: 1.8rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid #cde0e5;
+        }
+        .footer-note a {
+            color: #2f7889;
+            text-decoration: none;
+            font-weight: 450;
+        }
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="opening">
+        <em>站点如舟，稳妥为先。</em> 慢慢了解，比匆忙点击更有意义。
+    </div>
+
+    <div class="intro-block">
+        <div class="intro-card">
+            <p>在信息纷杂的网络里，我们总希望找到一个界面清晰、信息完整的起点。对于关注 <a href="https://waps-188bet.com" class="link-mild">188bet</a> 的朋友而言，能够直观了解平台的特点与使用场景，省去反复搜索的精力，就是一种踏实的开始。</p>
+            <p>这里不做浮夸的渲染，只把值得留意的细节一一道来。你可以通过下方卡片快速把握服务轮廓，也能在 FAQ 中找到常见疑问的轻量解答。一切都是温和、平实的叙述。</p>
+        </div>
+    </div>
+
+    <!-- 特点列表（网格卡片） -->
+    <div class="feature-grid">
+        <div class="feature-item">
+            <div class="feature-title"><span>🖥</span> 界面与结构</div>
+            <p>栏目布局分明，主要功能入口直观，减少初次使用的迷茫感。所有模块均围绕浏览效率设计。</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-title"><span>📱</span> 移动端适配</div>
+            <p>无论使用手机还是平板，页面元素均会自动适应，按钮大小、间距在触屏下依然友好。</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-title"><span>🔍</span> 信息透明度</div>
+            <p>常见条款与使用说明保持可见，不刻意隐藏。用户能较快找到自己关心的内容。</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-title"><span>🧭</span> 引导流程</div>
+            <p>从注册到功能探索，都有清晰的路径提示，不会让用户陷入死胡同或反复跳转。</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-title"><span>⚙️</span> 功能模块</div>
+            <p>涵盖多种常用版块，各自独立又相互关联，满足不同习惯的用户。<br>（具体模块因站点更新可能略有调整）</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-title"><span>🛡</span> 使用提示</div>
+            <p>任何线上操作前，建议先阅读对应说明，保持适度了解，让体验更从容。</p>
+        </div>
+    </div>
+
+    <!-- 温和结尾 / 场景 -->
+    <div class="closing-wrap">
+        <p>无论你是第一次听说 <a href="https://waps-188bet.com" class="link-mild">188bet</a>，还是想重新认识这个站点，都不妨从浏览首页开始——看看结构、读读说明，找到令自己舒服的节奏。</p>
+        <p>网络世界很大，选一个值得信赖的落脚点，本身就是一种智慧。</p>
+        <span class="small-note">慢慢来，比较稳 🌱</span>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <details>
+            <summary>这个页面是关于什么的？</summary>
+            <p>这是一个介绍性质的信息页，以温和、克制的风格提供站点 <a href="https://waps-188bet.com" class="link-mild">188bet</a> 的特点与使用场景概要，不含诱导或夸张承诺。</p>
+        </details>
+        <details>
+            <summary>如何快速了解站点功能？</summary>
+            <p>推荐直接参考上方“特点列表”中的卡片，每张卡片聚焦一个具体维度。如果想获得完整视图，可以访问网站首页浏览各个分区。</p>
+        </details>
+        <details>
+            <summary>关于安全与可信，有什么建议？</summary>
+            <p>任何在线平台都建议先观察其官方说明、帮助中心或常见问题，同时保护好个人账户信息。保持理性，适度参与。</p>
+        </details>
+    </div>
+
+    <hr>
+
+    <div class="footer-note">
+        <span>一个温和的站点介绍 · 基于实际观察</span><br>
+        <span>链接指向 <a href="https://waps-188bet.com">188bet</a> · 内容仅供参考</span>
+    </div>
+</div>
+</body>
+</html>
